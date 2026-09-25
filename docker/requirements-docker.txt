@@ -4,7 +4,7 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 # Deep Learning & Vision Engine (CPU Wheels)
-torch==2.6.0+cpu
+torch==2.12.1+cpu
 torchvision==0.21.0+cpu
 ultralytics==8.4.161
 opencv-python-headless==4.10.0.84
