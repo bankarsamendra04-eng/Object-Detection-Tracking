@@ -1,0 +1,22 @@
+# ==============================================================================
+# Docker Compose GPU Override for NVIDIA Container Toolkit
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+# Requirements:
+#   - NVIDIA Driver installed on host
+#   - NVIDIA Container Toolkit (nvidia-docker2) installed
+#   - CUDA capable GPU (e.g., RTX / GTX / Tesla / Quadro)
+# ==============================================================================
+
+services:
+  backend:
+    environment:
+      - DEVICE=cuda:0
+      - HALF_PRECISION=true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

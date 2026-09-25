@@ -1,0 +1,96 @@
+datasets:
+  visdrone_det_val:
+    dataset_id: visdrone_det_val
+    dataset_name: VisDrone2019-DET Validation Set
+    version: '2019'
+    source_repository: https://github.com/VisDrone/VisDrone-Dataset.git
+    official_source: AISKYEYE Team, Lab of Machine Learning and Data Mining, Tianjin
+      University
+    download_url: https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-val.zip
+    task: object_detection
+    modality: image
+    focus: small_object_crowded_scene
+    raw_path: data/datasets/raw/visdrone/detection/VisDrone2019-DET-val
+    processed_path: data/datasets/processed/visdrone
+    annotation_format: visdrone_csv
+    converted_format: yolo_txt
+    num_classes: 10
+    classes:
+      0: pedestrian
+      1: people
+      2: bicycle
+      3: car
+      4: van
+      5: truck
+      6: tricycle
+      7: awning-tricycle
+      8: bus
+      9: motor
+    train_split: null
+    validation_split: images/val
+    test_split: null
+    archive_size_mb: 70.0
+    extracted_images_count: 548
+    license: Non-Commercial Research & Academic Use
+    status: READY
+    notes: Official validation split from VisDrone benchmark. Standard benchmark for
+      small aerial targets and crowded scenes.
+  visdrone_det_train:
+    dataset_id: visdrone_det_train
+    dataset_name: VisDrone2019-DET Training Set
+    version: '2019'
+    source_repository: https://github.com/VisDrone/VisDrone-Dataset.git
+    official_source: AISKYEYE Team, Lab of Machine Learning and Data Mining, Tianjin
+      University
+    download_url: https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-train.zip
+    task: object_detection
+    modality: image
+    focus: small_object_crowded_scene
+    raw_path: data/datasets/raw/visdrone/detection/VisDrone2019-DET-train
+    processed_path: data/datasets/processed/visdrone
+    annotation_format: visdrone_csv
+    converted_format: yolo_txt
+    num_classes: 10
+    classes:
+      0: pedestrian
+      1: people
+      2: bicycle
+      3: car
+      4: van
+      5: truck
+      6: tricycle
+      7: awning-tricycle
+      8: bus
+      9: motor
+    train_split: images/train
+    validation_split: null
+    test_split: null
+    archive_size_mb: 1440.0
+    extracted_images_count: 6471
+    license: Non-Commercial Research & Academic Use
+    status: PLANNED
+    notes: Full training split for specialized small-object model fine-tuning.
+  custom_dataset:
+    dataset_id: custom_dataset
+    dataset_name: Custom User Dataset Template
+    version: 1.0.0
+    source_repository: local
+    official_source: User Defined
+    download_url: null
+    task: object_detection
+    modality: image
+    focus: general_custom
+    raw_path: data/datasets/raw/custom
+    processed_path: data/datasets/processed/custom
+    annotation_format: yolo_txt
+    converted_format: yolo_txt
+    num_classes: 0
+    classes: {}
+    train_split: images/train
+    validation_split: images/val
+    test_split: images/test
+    archive_size_mb: 0.0
+    extracted_images_count: 0
+    license: Proprietary / User Specified
+    status: PLANNED
+    notes: Template placeholder for future user custom detection datasets.

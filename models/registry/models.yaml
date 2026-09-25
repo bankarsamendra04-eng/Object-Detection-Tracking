@@ -1,0 +1,126 @@
+models:
+  general_pretrained:
+    model_id: general_pretrained
+    model_name: YOLOv8 Nano (COCO Pretrained)
+    model_type: pretrained
+    version: "8.0"
+    framework: ultralytics_yolo
+    task: object_detection
+    weights_path: yolov8n.pt
+    source: ultralytics
+    input_size: 640
+    recommended_confidence: 0.35
+    recommended_iou: 0.45
+    device: auto
+    status: AVAILABLE
+    num_classes: 80
+    classes:
+      0: person
+      1: bicycle
+      2: car
+      3: motorcycle
+      4: airplane
+      5: bus
+      6: train
+      7: truck
+      8: boat
+      9: traffic light
+      10: fire hydrant
+      11: stop sign
+      12: parking meter
+      13: bench
+      14: bird
+      15: cat
+      16: dog
+      17: horse
+      18: sheep
+      19: cow
+      20: elephant
+      21: bear
+      22: zebra
+      23: giraffe
+      24: backpack
+      25: umbrella
+      26: handbag
+      27: tie
+      28: suitcase
+      29: frisbee
+      30: skis
+      31: snowboard
+      32: sports ball
+      33: kite
+      34: baseball bat
+      35: baseball glove
+      36: skateboard
+      37: surfboard
+      38: tennis racket
+      39: bottle
+      40: wine glass
+      41: cup
+      42: fork
+      43: knife
+      44: spoon
+      45: bowl
+      46: banana
+      47: apple
+      48: sandwich
+      49: orange
+      50: broccoli
+      51: carrot
+      52: hot dog
+      53: pizza
+      54: donut
+      55: cake
+      56: chair
+      57: couch
+      58: potted plant
+      59: bed
+      60: dining table
+      61: toilet
+      62: tv
+      63: laptop
+      64: mouse
+      65: remote
+      66: keyboard
+      67: cell phone
+      68: microwave
+      69: oven
+      70: toaster
+      71: sink
+      72: refrigerator
+      73: book
+      74: clock
+      75: vase
+      76: scissors
+      77: teddy bear
+      78: hair drier
+      79: toothbrush
+    notes: "Default general-purpose COCO pretrained detector. Highly optimized for fast inference."
+
+  custom_visdrone:
+    model_id: custom_visdrone
+    model_name: YOLOv8 Custom VisDrone Detector
+    model_type: custom
+    version: "1.0-planned"
+    framework: ultralytics_yolo
+    task: object_detection
+    weights_path: models/custom/yolov8_visdrone.pt
+    source: custom_training
+    input_size: 1280
+    recommended_confidence: 0.25
+    recommended_iou: 0.45
+    device: auto
+    status: NOT_AVAILABLE
+    num_classes: 10
+    classes:
+      0: pedestrian
+      1: people
+      2: bicycle
+      3: car
+      4: van
+      5: truck
+      6: tricycle
+      7: awning-tricycle
+      8: bus
+      9: motor
+    notes: "Specialized aerial drone object detector with 10 VisDrone categories and 1280px resolution for small target recall. Checkpoint pending training in Step 11."

@@ -1,0 +1,66 @@
+# ==========================================
+# Root .dockerignore
+# Keeps Docker build context minimal and fast
+# ==========================================
+
+# Version control
+.git
+.gitignore
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache & compiled bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing & coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+test_artifacts/
+
+# Node / Frontend caches & local node_modules
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Datasets (Strictly exclude huge raw/processed dataset directories)
+data/datasets/raw/
+data/datasets/processed/
+data/datasets/downloads/
+data/datasets/archive/
+
+# Temporary and local runtime logs & database
+*.log
+logs/*
+!logs/.gitkeep
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/uploads/*
+!data/uploads/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# Environment files with secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.docker.example
+
+# OS and IDE caches
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

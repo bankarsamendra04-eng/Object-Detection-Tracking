@@ -1,0 +1,35 @@
+# ==========================================
+# Docker Production Requirements (CPU Optimized)
+# ==========================================
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Deep Learning & Vision Engine (CPU Wheels)
+torch==2.6.0+cpu
+torchvision==0.21.0+cpu
+ultralytics==8.4.161
+opencv-python-headless==4.10.0.84
+pillow==12.3.0
+
+# Scientific Computing & Data Processing
+numpy>=1.24.0,<2.3.0
+pandas>=2.0.0
+
+# Backend Framework & ASGI Server
+fastapi==0.141.1
+uvicorn[standard]==0.53.0
+starlette==1.7.0
+python-multipart==0.0.32
+websockets==17.1
+
+# Database & ORM
+sqlalchemy==2.0.54
+
+# Configuration & Utilities
+pydantic==2.13.5
+pydantic-settings==2.15.0
+python-dotenv==1.2.3
+pyyaml==6.0.3
+
+# Testing & HTTP Clients
+pytest==9.1.1
+httpx==0.28.1

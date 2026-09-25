@@ -1,0 +1,81 @@
+# ==========================================
+# Version Control Exclusion Rules (.gitignore)
+# ==========================================
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing & Coverage Artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+test_artifacts/
+
+# YOLO Checkpoints & Model Weights (kept out of Git; managed via registry)
+*.pt
+*.onnx
+*.engine
+runs/
+
+# Environment Configurations & Secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.docker.example
+
+# Databases & Runtime Storage
+*.sqlite3
+*.db
+*.db-journal
+uploads/
+recordings/
+data/uploads/*
+!data/uploads/.gitkeep
+outputs/*
+!outputs/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Datasets & Large Archives (strictly excluded from repository)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+data/datasets/raw/**
+!data/datasets/raw/**/README.md
+!data/datasets/raw/**/.gitkeep
+data/datasets/processed/**
+!data/datasets/processed/**/README.md
+!data/datasets/processed/**/.gitkeep
+data/datasets/samples/images/*
+!data/datasets/samples/images/.gitkeep
+data/datasets/samples/videos/*
+!data/datasets/samples/videos/.gitkeep
+
+# Node.js & Frontend Assets
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+build/
+frontend/build/
+.vite/
+frontend/.vite/
+
+# Operating System & IDE Caches
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

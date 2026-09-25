@@ -1,0 +1,46 @@
+app:
+  name: "Real-Time Object Detection & Tracking System"
+  version: "1.0.0"
+  env: "development"
+  debug: true
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  api_v1_prefix: "/api/v1"
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+    - "http://127.0.0.1:5173"
+
+vision:
+  model_name: "yolov8n.pt"
+  weights_dir: "models/weights"
+  device: "auto" # "auto", "cuda:0", "cpu"
+  confidence_threshold: 0.35
+  iou_threshold: 0.45
+  half_precision: false
+  max_detections: 100
+
+tracker:
+  type: "bytetrack.yaml"
+  persistence_buffer: 30
+  track_high_thresh: 0.5
+  track_low_thresh: 0.1
+  track_match_thresh: 0.8
+
+analytics:
+  counting:
+    enabled: true
+    default_classes: []
+    line_crossing:
+      enabled: true
+      coordinates:
+        - [0, 360]
+        - [1280, 360]
+
+storage:
+  data_dir: "data"
+  uploads_dir: "data/uploads"
+  outputs_dir: "outputs"
+  logs_dir: "logs"

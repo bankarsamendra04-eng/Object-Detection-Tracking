@@ -1,0 +1,19 @@
+# Custom Dataset Configuration Template for YOLO
+# Use this template when integrating domain-specific object detection datasets.
+
+# Dataset root directory (relative to project root or external path)
+path: data/datasets/processed/custom
+
+# Splits (relative to 'path')
+train: images/train
+val: images/val
+test: images/test
+
+# Number of classes
+nc: 3
+
+# Class names
+names:
+  0: object_class_a
+  1: object_class_b
+  2: object_class_c

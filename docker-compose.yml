@@ -1,0 +1,82 @@
+# ==============================================================================
+# Docker Compose - Object Detection & Tracking Platform (Production)
+# Multi-container stack: FastAPI backend + React Nginx SPA frontend
+# ==============================================================================
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    container_name: vision-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=Real-Time Object Detection & Tracking System
+      - APP_ENV=production
+      - DEBUG=false
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEVICE=cpu
+      - DATABASE_URL=sqlite:////app/data/detection_tracking.db
+      - CORS_ORIGINS=["http://localhost","http://localhost:80","http://127.0.0.1","http://127.0.0.1:80","http://localhost:5173","http://localhost:3000"]
+      - DATA_DIR=data
+      - UPLOADS_DIR=data/uploads
+      - OUTPUTS_DIR=outputs
+      - LOGS_DIR=logs
+      - MODEL_NAME=yolov8n.pt
+      - ACTIVE_MODEL_ID=general_pretrained
+      - CONFIDENCE_THRESHOLD=0.35
+      - IOU_THRESHOLD=0.45
+      - MAX_DETECTIONS=100
+      - MAX_CONCURRENT_WS_SESSIONS=10
+    volumes:
+      # Persistent named volumes for operational runtime data
+      - vision-backend-data:/app/data
+      - vision-backend-outputs:/app/outputs
+      - vision-backend-logs:/app/logs
+      # Host bind mounts for weights and model registry (no rebuild needed to add models)
+      - ./models:/app/models
+      - ./yolov8n.pt:/app/yolov8n.pt:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 25s
+    networks:
+      - vision-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    container_name: vision-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - vision-network
+
+volumes:
+  vision-backend-data:
+    name: vision-backend-data
+  vision-backend-outputs:
+    name: vision-backend-outputs
+  vision-backend-logs:
+    name: vision-backend-logs
+
+networks:
+  vision-network:
+    name: vision-network
+    driver: bridge

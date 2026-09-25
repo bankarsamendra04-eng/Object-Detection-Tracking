@@ -1,0 +1,43 @@
+{
+  "split": "val",
+  "total_images": 548,
+  "valid_images": 548,
+  "corrupt_images": [],
+  "missing_label_files": [],
+  "empty_label_files": [],
+  "total_boxes": 38759,
+  "malformed_box_lines": 0,
+  "invalid_class_ids": 0,
+  "out_of_bounds_coords": 0,
+  "zero_area_boxes": 0,
+  "class_counts": {
+    "car": 14064,
+    "motor": 4886,
+    "people": 5125,
+    "pedestrian": 8844,
+    "awning-tricycle": 532,
+    "tricycle": 1045,
+    "bicycle": 1287,
+    "truck": 750,
+    "van": 1975,
+    "bus": 251
+  },
+  "size_distribution": {
+    "very_small": 11955,
+    "small": 14631,
+    "medium": 11105,
+    "large": 1068
+  },
+  "mean_bbox_area_px": 1512.14,
+  "median_bbox_area_px": 520.01,
+  "leakage_audit": {
+    "splits_checked": [
+      "train",
+      "val",
+      "test"
+    ],
+    "leakage_count": 0,
+    "leaked_pairs": [],
+    "status": "PASS"
+  }
+}
