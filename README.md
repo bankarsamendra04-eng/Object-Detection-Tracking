@@ -340,7 +340,7 @@ Object-Detection-Tracking/
 ### 20.2 Local Setup
 ```powershell
 # 1. Clone repository
-git clone https://github.com/YourRepo/Object-Detection-Tracking.git
+git clone https://github.com/bankarsamendra04-eng/Object-Detection-Tracking.git
 cd Object-Detection-Tracking
 
 # 2. Create and activate virtual environment
