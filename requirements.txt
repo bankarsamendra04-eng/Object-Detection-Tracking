@@ -1,5 +1,5 @@
 # Deep Learning & Vision Engine
-torch==2.6.0+cu124
+torch==2.12.1+cpu
 torchvision==0.21.0+cu124
 ultralytics==8.4.161
 opencv-python==5.0.0.93
